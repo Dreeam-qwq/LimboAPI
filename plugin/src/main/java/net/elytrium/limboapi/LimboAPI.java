@@ -55,7 +55,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Function;
-import java.util.function.Supplier;
 import net.elytrium.commons.config.YamlConfig;
 import net.elytrium.commons.kyori.serialization.Serializer;
 import net.elytrium.commons.kyori.serialization.Serializers;
@@ -76,10 +75,8 @@ import net.elytrium.limboapi.api.file.WorldFile;
 import net.elytrium.limboapi.api.material.Block;
 import net.elytrium.limboapi.api.material.Item;
 import net.elytrium.limboapi.api.material.VirtualItem;
-import net.elytrium.limboapi.api.protocol.PacketDirection;
 import net.elytrium.limboapi.api.protocol.PreparedPacket;
 import net.elytrium.limboapi.api.protocol.packets.PacketFactory;
-import net.elytrium.limboapi.api.protocol.packets.PacketMapping;
 import net.elytrium.limboapi.file.WorldFileTypeRegistry;
 import net.elytrium.limboapi.injection.disconnect.DisconnectListener;
 import net.elytrium.limboapi.injection.event.EventManagerHook;
@@ -457,11 +454,6 @@ public class LimboAPI implements LimboFactory {
         pipeline.replace(Connections.COMPRESSION_DECODER, Connections.COMPRESSION_DECODER, decoder);
       }
     }
-  }
-
-  @Override
-  public void registerPacket(PacketDirection direction, Class<?> packetClass, Supplier<?> packetSupplier, PacketMapping[] packetMappings) {
-    throw new UnsupportedOperationException();
   }
 
   @Override
